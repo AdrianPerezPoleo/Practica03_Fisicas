@@ -3,6 +3,7 @@
 En el siguiente documento se muestran las conclusiones de la experimentación con los diferentes casos propuestos en la primera actividad de la práctica.
 
 ## Índice
+### Situaciones (Introducción a las físicas)
 * [Situación 1](#situación-1)
 * [Situación 2](#situación-2)
 * [Situación 3](#situación-3)
@@ -12,6 +13,8 @@ En el siguiente documento se muestran las conclusiones de la experimentación co
 * [Situación 7](#situación-7)
 * [Situación 8](#situación-8)
 * [Situación 9](#situación-9)
+### Ejercicios
+
 
 ## Situación 1
 ### Configuración
@@ -102,3 +105,25 @@ Plano (Rigidbody Cinemático + Collider) | Cubo (Rigidbody + Collider) | Esfera 
 A diferencia de la situación 8, aquí la esfera sí cuenta con un *Rigidbody* dinámico, por lo que la gravedad sí actúa sobre ella y comienza a caer. Sin embargo, al mantener su *collider* marcado como *Is Trigger*, la esfera atraviesa completamente tanto el cubo como el plano cinemático sin colisionar con ellos ni desplazar al cubo.
 
 Esto demuestra que un objeto puede estar sujeto a las fuerzas físicas del motor (como la gravedad) y, al mismo tiempo, comportarse como un área que se puede atravesar.
+
+
+---
+
+## Ejercicio 01. Movimiento
+El fichero con el código se encuentra en [](Assets/Scripts/Ejercicio01_Movimiento.cs)
+
+### Descripción
+Para resolver este ejercicio fue necesario crear un personaje cuyo desplazamiento pudiéramos controlar mediante las teclas WASD y las flechas y que tuviera un *RigidBody*.
+
+
+### Implementación
+En la implementación de este ejercicio, similar al realizado en la práctica anterior, fue necesario capturar el componente *RigidBody* para manipular la posición del objeto.
+
+Una vez asignamos dicho componente a un objeto, no es buena práctica modificar directamente su transform, ya que el propio componente nos ofrece métodos cinemáticos como `MovePosition` o `MoveRotation` con los que desplazar el objeto si fuera necesario.
+
+Además, tuvimos que separar la captura de datos de entrada (ejes) en el método `Update()` y la actualización de la posición del objeto en el método `FixedUpdate()`, utilizando *Time.fixedDeltaTime* como medida de tiempo.
+
+Por último, me gustaría destacar que, profundizando un poco en lo que hicimos al final de la última práctica, donde el objeto se movía siempre en dirección *forward* y el eje horizontal solo servía para rotar, quise ver cómo se podría hacer eso con *Rigidbody*. Para lograr esto de forma adecuada (sin recurrir a `transform.Rotate`, que se saltaría la simulación física), la solución (comentada en el script) para por calcular un objeto `Quaternion` con el que luego aplicar un incremento de rotación (`MoveRotation`).
+
+### Ejecucion
+![](docs/Ejercicios/Ejercicio01.gif)
