@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 232221979}
   - component: {fileID: 232221984}
   m_Layer: 0
-  m_Name: BiggestCube
+  m_Name: MediumCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1082323837}
   - component: {fileID: 1082323842}
   m_Layer: 0
-  m_Name: SecondSmallestCube
+  m_Name: SmallestCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 1591553970}
   - component: {fileID: 1591553975}
   m_Layer: 0
-  m_Name: SmallestCube
+  m_Name: BiggestCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

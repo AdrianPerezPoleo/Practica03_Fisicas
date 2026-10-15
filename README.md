@@ -110,7 +110,7 @@ Esto demuestra que un objeto puede estar sujeto a las fuerzas físicas del motor
 ---
 
 ## Ejercicio 01. Movimiento
-El fichero con el código se encuentra en [](Assets/Scripts/Ejercicio01_Movimiento.cs)
+El fichero con el código se encuentra en [Assets/Scripts/Ejercicio01_Movimiento.cs](Assets/Scripts/Ejercicio01_Movimiento.cs)
 
 ### Descripción
 Para resolver este ejercicio fue necesario crear un personaje cuyo desplazamiento pudiéramos controlar mediante las teclas WASD y las flechas y que tuviera un *RigidBody*.
@@ -127,3 +127,20 @@ Por último, me gustaría destacar que, profundizando un poco en lo que hicimos 
 
 ### Ejecucion
 ![](docs/Ejercicios/Ejercicio01.gif)
+
+## Ejercicio 02. Cambio de Color
+El fichero con el código se encuentra en [](Assets/Scripts/Ejercicio02_CambioColor.cs)
+
+### Descripción
+El ejercicio consiste en crear varios objetos (cubos y esferas) que tengan asociado un *Rigidbody* dinámico y que, al colisionar con ellos, se cambie su color y se imprima por consola cuál ha sido la colisión.
+
+### Implementación
+Dado que ya habíamos trabajado cómo cambiar el color de un objeto utilizando scripts (cambiando la propiedad `MeshRenderer.material.color`) el principal reto estuvo en detectar las colisiones.
+
+Para ello, creamos un script que luego agregamos a cada uno de los objetos que debían cambiar de color (cubos y esferas) que definía la función `OnCollisionEnter` de tal forma que, cada vez que se produzca una colisión, se ejecuta el bloque de código asociado a dicho método.
+
+En nuestro caso, la aparición de una colisión, provocada por el choque de dos objetos (y al menos uno con *Rigidbody*), cambiaba la propiedad del color que ya mencionamos.
+
+
+### Ejecución
+![](docs/Ejercicios/Ejercicio02.gif)
