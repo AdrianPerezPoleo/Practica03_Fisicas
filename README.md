@@ -129,7 +129,7 @@ Por último, me gustaría destacar que, profundizando un poco en lo que hicimos 
 ![](docs/Ejercicios/Ejercicio01.gif)
 
 ## Ejercicio 02. Cambio de Color
-El fichero con el código se encuentra en [](Assets/Scripts/Ejercicio02_CambioColor.cs)
+El fichero con el código se encuentra en [Assets/Scripts/Ejercicio02_CambioColor.cs](Assets/Scripts/Ejercicio02_CambioColor.cs)
 
 ### Descripción
 El ejercicio consiste en crear varios objetos (cubos y esferas) que tengan asociado un *Rigidbody* dinámico y que, al colisionar con ellos, se cambie su color y se imprima por consola cuál ha sido la colisión.
@@ -171,3 +171,23 @@ De esta manera, intentando incorporar el Principio de Responsabilidad Única, he
 
 ###  Ejecución
 ![](docs/Ejercicios/Ejercicio03.gif)
+
+## Ejercicio 04. Layer Collision Matrix
+
+El fichero con el código se encuentra en: [Assets/Scripts/Ejercicio04_Layers.cs](Assets/Scripts/Ejercicio04_Layers.cs).
+
+### Descripción
+Mediante la creación de capas (*layers*) y la modificación de la matriz de colisión de capas (*Layer Collision Matrix*), se pretende configurar tres tipos de objetos: jugador, enemigos y recolectables, de tal forma que los enemigos solo puedan tocar al jugador y los recolectables solo sean detectados por triggers.
+
+### Implementación
+Tras crear todos los objetos que se pedían (algunos enemigos, un jugador y algunos recolectables, todos con colores diferentes para distinguirlos), fue necesario crear las capas.
+
+Posteriormente, en `Edit > Project Settings > Physics` hubo que configurar la Matriz de Colisión de Capas, para que los diferentes tipos de objetos se comportaran como se espera.
+![](docs/Ejercicios/Layer_Collision_Matrix.png)
+
+Luego, se desarrolló un pequeño script para poder verificar que los recolectables actuaban cuando detectaban superposiciones, como se puede ver en la prueba de ejecución.
+
+Gracias al uso de esta matriz, logramos un mejor rendimiento del motor de físicas, que evita cálculos de colisión innecesarios entre capas deshabilitadas.
+
+### Ejecución
+![](docs/Ejercicios/Ejercicio04.gif)
