@@ -141,6 +141,33 @@ Para ello, creamos un script que luego agregamos a cada uno de los objetos que d
 
 En nuestro caso, la aparición de una colisión, provocada por el choque de dos objetos (y al menos uno con *Rigidbody*), cambiaba la propiedad del color que ya mencionamos.
 
-
 ### Ejecución
 ![](docs/Ejercicios/Ejercicio02.gif)
+
+## Ejercicio 03. Triggers.
+
+Este ejercicio cuenta con varios scripts:
+- Script que configura las propiedades del jugador: [Assets/Scripts/Ejercicio03_AtributosJugador.cs](Assets/Scripts/Ejercicio03_AtributosJugador.cs)
+- Script que configura la zona de cambio de color: [Assets/Scripts/Ejercicio03_ZonaColor.cs](Assets/Scripts/Ejercicio03_ZonaColor.cs)
+
+- Script que configura la zona de aumento de daño:
+[Assets/Scripts/Ejercicio03_ZonaDaño.cs](Assets/Scripts/Ejercicio03_ZonaDaño.cs)
+
+- Script que configura la zona de cambio de luz: [Assets/Scripts/Ejercicio03_ZonaLuz.cs](Assets/Scripts/Ejercicio03_ZonaLuz.cs)
+
+### Descripción
+En este ejercicio se pedía crear diferentes zonas que modificaran el estado del jugador, o de la escena, cuando el jugador entraba en ellas.
+
+### Implementación
+Para implementar este ejercicio, creé tres cubos y les di un color transparente para que pudiéramos ver al jugador atravesarlos.
+
+El primer cubo modificaba el color del jugador. Para evitar almacenar el color original del jugador en el objeto cubo, puesto que sería un problema si hubiera más de un jugador, fue necesario incorporar al jugador un componente *AtributosJugador* (que se encuentra en el primer enlace) que dotaba al jugador de métodos como `ChangeColor` y `RestoreColor`. También le asigné la etiqueta `Player`. De esta manera, cada vez que el trigger detectara una superposición (`OnTriggerEnter` / `OnTriggerExit`), comprobaba si era el jugador y llamaba a los métodos correspondientes.
+
+Lo mismo hice para el segundo cubo, el que aumentaba el daño. El componente *AtributosJugador* dotaba al jugador de un atributo `daño` y de los métodos para aumentar (`AddDamage`) y restaurar (`RestoreDamage`) el daño original.
+
+Finalmente, la zona de luces primero identificaba dónde estaba la luz de la escena (mediante `GameObject.FindWithTag`) para luego almacenar su componente *Light* y modificar su intensidad y color cada vez que el jugador activara su trigger.
+
+De esta manera, intentando incorporar el Principio de Responsabilidad Única, he logrado cumplir con los objetivos de este ejercicio.
+
+###  Ejecución
+![](docs/Ejercicios/Ejercicio03.gif)
