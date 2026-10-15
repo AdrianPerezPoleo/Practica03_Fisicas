@@ -191,3 +191,22 @@ Gracias al uso de esta matriz, logramos un mejor rendimiento del motor de físic
 
 ### Ejecución
 ![](docs/Ejercicios/Ejercicio04.gif)
+
+## Ejercicio 05. Materiales Físicos
+
+El fichero con el código se encuentra en: [Assets/Scripts/Ejercicio05_MaterialFisico.cs](Assets/Scripts/Ejercicio05_MaterialFisico.cs)
+
+### Descripción
+El presente ejercicio requiere la creación de una escena con diversos objetos que cuentan con diferentes materiales físicos (*Physics Materials*). Posteriormente, se aplica una fuerza inicial a todos para ver cómo se comportan durante la simulación.
+
+### Implementación
+En primer lugar, se crearon todos los materiales físicos. Estos materiales tienen unas propiedades (fricción y rebote) que permiten hacer la simulación más realista. Cada uno de los cubos tiene un material totalmente diferente, para que se pueda ver cómo influye el material en el recorrido que deben hacer.
+
+Los objetos se encuentran en un plano levemente declinado, para favorecer el deslizamiento de un cubo frente a la fricción del otro. De hecho, el contraste es bastante notorio.
+
+Además, cada cubo tiene un color para que sea más fácil diferenciarlos.
+
+Por otro lado, el mapeo de la tecla `X` para activar el disparo de la fuerza se configuró a través del *Input Manager*. Puesto que en un inicio los objetos se encuentran suspendidos por encima del plano, el motor de físicas los mantiene en estado de reposo (*Sleep*) para ahorrar cómputo, saliendo de dicho estado (*WakeUp*) automáticamente al recibir la fuerza que desencadena la simulación.
+
+### Ejecución
+![](docs/Ejercicios/Ejercicio05.gif)
