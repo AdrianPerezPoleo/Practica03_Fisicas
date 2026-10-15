@@ -210,3 +210,21 @@ Por otro lado, el mapeo de la tecla `X` para activar el disparo de la fuerza se 
 
 ### Ejecución
 ![](docs/Ejercicios/Ejercicio05.gif)
+
+## Ejercicio 06. Colliders.
+El fichero con el código se encuentra en [Assets/Scripts/Ejercicio06_ColliderManual.cs](Assets/Scripts/Ejercicio06_ColliderManual.cs)
+
+### Descripción
+En el último ejercicio de la práctica, se requiere ubicar tres objetos alineados en la escena (una esfera, un cubo y un cilindro) provistos de un componente *Collider*, pero sin *Rigidbody*. La esfera debe desplazarse hacia el cilindro atravesando el cubo y, en el instante exacto de la intersección, cambiar su material.
+
+### Implementación
+La implementación de este ejercicio guarda mucha relación con la práctica anterior, donde las físicas no intervenían.
+
+La implementación de este ejercicio guarda una estrecha relación con el primer bloque de prácticas, donde los objetos se desplazaban cinemáticamente sin intervención del motor de físicas.
+
+Para lograrlo, se implementó un desplazamiento rectilíneo mediante código para hacer avanzar la esfera. Sin embargo, en lugar de delegar la detección en los métodos habituales del ciclo de vida de los *Triggers* (como `OnTriggerEnter`), el cálculo de la colisión se realizó de manera manual.
+
+Cabe destacar que, aunque en esta ocasión se implementó una comprobación por distancia (comparando la separación entre centros con un margen de colisión `collisionMargin`), la API de Unity ofrece métodos optimizados dentro de la clase *Collider*, como `Collider.bounds.Intersects`, los cuales permiten verificar de forma directa si los *Collider* de dos objetos se solapan.
+
+### Ejecución
+![](docs/Ejercicios/Ejercicio06.gif)
